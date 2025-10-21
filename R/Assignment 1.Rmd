@@ -1,0 +1,116 @@
+---
+title: "Assignment 1"
+author: "20210368 이민서"
+date: "2025-10-21"
+output: pdf_document
+header-includes:
+  - \usepackage{kotex}
+mainfont: NanumGothic
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Problem 1
+
+* GitHub Link : https://github.com/minseo-02/Project_Route.git
+
+
+# Problem 2
+
+## 2-(a)
+
+```{r}
+set.seed(1)
+x = runif(10)
+```
+
+```{r}
+bubble_sort = function(vec, order = "asc") {
+  
+  n = length(vec)
+  
+  for (i in 1:(n-1)) 
+    {
+    for (j in 1:(n-i)) 
+      {  
+      if ((order == "asc" && vec[j] > vec[j + 1]) ||
+          (order == "desc" && vec[j] < vec[j + 1]))
+        {
+        temp = vec[j]
+        vec[j] = vec[j + 1]
+        vec[j + 1] = temp
+      }
+    }
+  }
+  return(vec)
+}
+```
+
+```{r}
+bubble_sort(x)
+```
+
+```{r}
+bubble_sort(x, order = "desc")
+```
+
+## 2-(b)
+
+```{r}
+quick_sort <- function(x, order = "asc") {
+
+  if (length(x) <= 1) return(x)
+  
+  a <- x[1]
+  b <- x[ceiling(length(x) / 2)]
+  c <- x[length(x)]
+  pivot <- median(c(a, b, c))
+  
+  if (order == "asc") {
+    left  <- x[x < pivot]
+    mid   <- x[x == pivot]
+    right <- x[x > pivot]
+    
+    return(c(quick_sort(left, "asc"), mid, quick_sort(right, "asc")))
+    
+  } else if (order == "desc") {
+    left  <- x[x > pivot]
+    mid   <- x[x == pivot]
+    right <- x[x < pivot]
+    
+    return(c(quick_sort(left, "desc"), mid, quick_sort(right, "desc")))
+    
+  } else {
+    stop("order must be either 'asc' or 'desc'")
+  }
+}
+```
+
+```{r}
+quick_sort(x, order = "asc")
+```
+
+```{r}
+quick_sort(x, order = "desc")
+```
+
+# Problem 3
+
+## 3-(a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
